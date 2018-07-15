@@ -1,10 +1,9 @@
 package com.briup.app02.bean;
 
-public class Course {
+public class Grade {
 	private Long id;
 	private String name;
-	private Double description;
-	private String period;
+	private String description;
 	public Long getId() {
 		return id;
 	}
@@ -17,18 +16,12 @@ public class Course {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Double getDescription() {
+	public String getDescription() {
 		return description;
 	}
-	public void setDescription(Double description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getPeriod() {
-		return period;
-	}
-	public void setPeriod(String period) {
-		this.period = period;
-	}
-
+	
 
 }
