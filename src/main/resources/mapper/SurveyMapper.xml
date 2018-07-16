@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.app02.dao.SurveyMapper">
+	<select id="findAll" resultType="com.briup.app02.bean.Survey">
+		select * from poll_survey
+	</select>
+
+	<select id="findById" parameterType="long"
+		resultType="com.briup.app02.bean.School">
+		select * from poll_survey where id = #{id}
+	</select>
+
+	<insert id="save" parameterType="com.briup.app02.bean.Survey">
+		insert into poll_survey
+		values(null,#{state},#{average},#{surveyDate},#{questionnaire_id},
+		#{clazz_id},#{user_id},#{course_id})
+	</insert>
+
+	<update id="update" parameterType="com.briup.app02.bean.Survey">
+		update poll_survey
+		set
+		state=#{state},average=#{average},surveyDate=#{surveyDate},questionnaire_id=#{questionnaire_id},
+		clazz_id=#{clazz_id},user_id=#{user_id},course_id=#{course_id}
+		where id=#{id}
+	</update>
+
+
+
+</mapper>

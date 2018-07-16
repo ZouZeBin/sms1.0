@@ -6,7 +6,7 @@ import com.briup.app02.bean.Clazz;
 
 public interface ClazzMapper {
 	//查找所有班级
-	List<Clazz> findAllI();
+	List<Clazz> findAll();
 	//通过Id来查找班级
 	Clazz findById(long id);
 	//保存班级

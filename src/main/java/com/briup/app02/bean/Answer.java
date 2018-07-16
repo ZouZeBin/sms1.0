@@ -3,7 +3,7 @@ package com.briup.app02.bean;
 public class Answer {
 	private Long id;
 	private String selection;
-	private String chect;
+	private String check;
 	private String content;
 	private Long survey_id;
 	public Long getId() {
@@ -18,11 +18,11 @@ public class Answer {
 	public void setSelection(String selection) {
 		this.selection = selection;
 	}
-	public String getChect() {
-		return chect;
+	public String getCheck() {
+		return check;
 	}
-	public void setChect(String chect) {
-		this.chect = chect;
+	public void setCheck(String check) {
+		this.check = check;
 	}
 	public String getContent() {
 		return content;

@@ -5,7 +5,7 @@ public class User {
 	private String name;
 	private String gender;
 	private String birth;
-	private String hirehate;
+	private String hiredate;
 	public Long getId() {
 		return id;
 	}
@@ -30,11 +30,12 @@ public class User {
 	public void setBirth(String birth) {
 		this.birth = birth;
 	}
-	public String getHirehate() {
-		return hirehate;
+	public String getHiredate() {
+		return hiredate;
 	}
-	public void setHirehate(String hirehate) {
-		this.hirehate = hirehate;
+	public void setHiredate(String hiredate) {
+		this.hiredate = hiredate;
 	}
+
 	
 }
