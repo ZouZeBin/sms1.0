@@ -13,7 +13,7 @@ import com.briup.app02.service.IStudentService;
 import com.briup.app02.util.MsgResponse;
 
 import springfox.documentation.annotations.ApiIgnore;
-@ApiIgnore
+@ApiIgnore  //在网页上不显示
 @RestController
 @RequestMapping("/student")
 

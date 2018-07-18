@@ -24,10 +24,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * ClassName:Swagger2 <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2018年6月10日 下午6:22:51 <br/>
- * @author   lichunyu
+ * Date:     2018年7月9日  <br/>
+ * @author   邹泽斌
  * @version  
- * @since    JDK 1.6
+ * @since    JDK 1.8
  * @see 	 
  */
 @Configuration
@@ -45,9 +45,9 @@ public class Swagger2 {
 	
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("江西理工大学南昌校区")
-				.description("小胡制作，http://218.65.107.163:8096/XG/")
-				.termsOfServiceUrl("http://www.briup.com")
+				.title("智慧校园 调课系统云平台")
+				.description("不信你百度一下http://www.baidu.com ")
+				.termsOfServiceUrl("http://www.baidu.com")
 				.version("1.0")
 				.build();
 	}

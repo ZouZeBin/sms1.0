@@ -22,7 +22,7 @@ public class GradeServiceImpl implements IGradeService {
 			return grade;
 		}
 		else{
-			throw new Exception("不存在！");
+			throw new Exception("查找失败！");
 		}
 	}
 
@@ -33,7 +33,7 @@ public class GradeServiceImpl implements IGradeService {
 			return gradeMapper.findById(id);
 			
 		}else{
-			throw new Exception("对不起，您要查找的成绩不存在！");
+			throw new Exception("查找失败");
 			
 		}
 	}
@@ -43,7 +43,7 @@ public class GradeServiceImpl implements IGradeService {
 		if(grade.getName() != null){
 			gradeMapper.save(grade);
 		}else{
-			throw new Exception("保存失败！请联系管理员。");
+			throw new Exception("保存失败");
 		}
 				
 	}
@@ -54,7 +54,7 @@ public class GradeServiceImpl implements IGradeService {
 		if(newSchool != null){
 			gradeMapper.update(grade);
 		}else{
-			throw new Exception("更新失败，您要更新的成绩不存在！");
+			throw new Exception("更新失败");
 			
 		}		
 	}
@@ -65,7 +65,7 @@ public class GradeServiceImpl implements IGradeService {
 		if(grade != null){
 			gradeMapper.deleteById(id);
 		}else{
-			throw new Exception("删除失败，不存在该id！");
+			throw new Exception("删除失败");
 		}		
 	}
 

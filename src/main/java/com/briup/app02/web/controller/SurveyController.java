@@ -12,20 +12,18 @@ import com.briup.app02.bean.Survey;
 import com.briup.app02.service.ISurveyService;
 import com.briup.app02.util.MsgResponse;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(description="调查实体相关接口")
 @RestController
 @RequestMapping("/survey")
 public class SurveyController {
 	@Autowired
 	private ISurveyService surveyService;
 	
-	/**
-	 * @author 胡杰
-	 * 通过创建MsgResponse方法 ，若查询成功，则返回"查询成功！"，并将所查询的班级返回
-	 * 若查询不成功，则捕获抛出的新异常
-	 * 
-	 * */
 	
-	
+	    @ApiOperation(value="查询全部课调实体信息")
 		@GetMapping("findAll")
 		public MsgResponse findAll(){
 			try{
@@ -39,7 +37,7 @@ public class SurveyController {
 			}
 		}
 		
-		
+	    @ApiOperation(value="通过ID查询全部课调实体信息")
 		@GetMapping("findById")
 		public MsgResponse findById(long id){
 			try {
@@ -51,7 +49,7 @@ public class SurveyController {
 			}
 		}
 		
-
+	    @ApiOperation(value="插入课调实体信息")
 		@PostMapping("save")
 		public MsgResponse save(Survey survey){
 			try {
@@ -64,7 +62,7 @@ public class SurveyController {
 			}
 		}
 		
-	
+	    @ApiOperation(value="更新课调实体信息")
 		@PostMapping("update")
 		public MsgResponse update(Survey survey){
 			try {

@@ -22,7 +22,7 @@ public  class StudentServiceImpl implements IStudentService{
 		if(list!=null){
 			return list;
 		}else{
-			 throw new Exception("对不起，学生不存在！");
+			 throw new Exception("查找失败");
 		}
 		
 	}
@@ -38,7 +38,7 @@ public  class StudentServiceImpl implements IStudentService{
 			return  studentMapper.findById(id);
 		}
 		else{
-			 throw new Exception("对不起，该学生不存在！");
+			 throw new Exception("查找失败");
 		}
 	}
 
@@ -51,7 +51,7 @@ public  class StudentServiceImpl implements IStudentService{
 		if(student.getName()!=null){
 			studentMapper.save(student);
 		}else{
-			throw new Exception("保存失败，请填写学生姓名！");
+			throw new Exception("保存失败");
 		}
 	}
 	
@@ -62,7 +62,7 @@ public  class StudentServiceImpl implements IStudentService{
 		if(newStudent!=null){
 			studentMapper.update(student);
 		}else{
-			throw new Exception("您要更新的学生ID不存在！");
+			throw new Exception("更新失败，您要更新的学生ID不存在！");
 		}
 	}
 	//删除学生
@@ -73,7 +73,7 @@ public  class StudentServiceImpl implements IStudentService{
 			studentMapper.delete(id);
 		}
 		else{
-			 throw new Exception("对不起，该学生不存在！");
+			 throw new Exception("删除失败，您要删除的学生ID不存在！");
 		}
 	}
 

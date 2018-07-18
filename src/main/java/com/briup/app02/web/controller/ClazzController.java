@@ -24,7 +24,7 @@ public class ClazzController {
 	private IClazzService  clazzService;
 	
 	/**
-	 * @author 胡杰
+	 *
 	 * 通过创建MsgResponse方法 ，若查询成功，则返回"查询成功！"，并将所查询的班级返回
 	 * 若查询不成功，则捕获抛出的新异常
 	 * 
@@ -44,7 +44,7 @@ public class ClazzController {
 			}
 		}
 		
-		@ApiOperation(value="查询所有班级",notes="即查询班级的基本信息，也能查看年级和班主任")
+		@ApiOperation(value="查询所有班级",notes="即能查询班级的基本信息，也能查看年级和班主任")
 		@GetMapping("findAllClazzVM")
 		public MsgResponse findAllClazzVM(){
 			try{
@@ -58,8 +58,8 @@ public class ClazzController {
 			}
 		}
 		
-		//通过ID查询班级
-		@ApiOperation(value="根据ID查看班级",notes="即查询班级的基本信息，也能查看年级和班主任")
+		//通过班级ID查询班级
+		@ApiOperation(value="根据班级的ID查看班级",notes="即查询班级的基本信息，也能查看年级和班主任")
 		@GetMapping("findByIdClazzVM")
 		public MsgResponse findByIdClazzVM(long id){
 			try {
@@ -71,7 +71,7 @@ public class ClazzController {
 			}
 		}
 		
-		@ApiOperation(value="根据ID查看班级",notes="只能查询班级的基本信息")
+		@ApiOperation(value="根据班级的ID查看班级",notes="只能查询班级的基本信息")
 		@GetMapping("findById")
 		public MsgResponse findById(long id){
 			try {
@@ -83,7 +83,8 @@ public class ClazzController {
 			}
 		}
 		
-		//保存班级
+		//保存班级信息
+		@ApiOperation(value="插入班级信息")
 		@PostMapping("save")
 		public MsgResponse save(Clazz clazz){
 			try {
@@ -96,7 +97,8 @@ public class ClazzController {
 			}
 		}
 		
-		//更新班级
+		//更新班级信息
+		@ApiOperation(value="更新班级信息")
 		@PostMapping("update")
 		public MsgResponse update(Clazz clazz){
 			try {
@@ -108,7 +110,8 @@ public class ClazzController {
 			}
 		}
 		
-		//删除学校
+		//删除学校信息
+		@ApiOperation(value="删除班级信息")
 		@PostMapping("deleteById")
 		public MsgResponse deleteById(long id){
 			try {

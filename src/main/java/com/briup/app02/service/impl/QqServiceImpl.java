@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.briup.app02.bean.Qq;
 import com.briup.app02.dao.QqMapper;
+import com.briup.app02.dao.extend.QqVMMapper;
 import com.briup.app02.service.IQqService;
+import com.briup.app02.vm.QqVM;
 
 @RestController
 @RequestMapping("/qq")
@@ -16,6 +18,8 @@ public class QqServiceImpl implements IQqService {
 	
 	@Autowired
 	private QqMapper qqMapper;
+	@Autowired
+	private QqVMMapper qqVMMapper;
 	
 	@Override
 	public List<Qq> findAll() throws Exception {
@@ -24,16 +28,27 @@ public class QqServiceImpl implements IQqService {
 			return qq;
 		}
 		else{
-			throw new Exception("不存在选项！");
+			throw new Exception("查找失败");
 		}
 	}
 
+	@Override
+	public List<QqVM> findAllQqVM() throws Exception {
+		List <QqVM> qqVM = qqVMMapper.findAllQqVM();
+		if(qqVM != null){
+			return qqVM;
+		}
+		else{
+			throw new Exception("查找失败");
+		}
+	}
+	
 	@Override
 	public void save(Qq qq) throws Exception {
 		if(qq.getQuestion_id() != null){
 			qqMapper.save(qq);
 		}else{
-			throw new Exception("保存失败！请联系管理员。");
+			throw new Exception("保存失败");
 		}
 	}
 
@@ -44,8 +59,10 @@ public class QqServiceImpl implements IQqService {
 		if(qq.getId() != null){
 			qqMapper.update(qq);
 		}else{
-			throw new Exception("更新失败，您要更新的学校不存在！");
+			throw new Exception("更新失败");
 			
 		}
 	}
+
+	
 }

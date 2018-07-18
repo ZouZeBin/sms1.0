@@ -12,6 +12,10 @@ import com.briup.app02.bean.Course;
 import com.briup.app02.service.ICourseService;
 import com.briup.app02.util.MsgResponse;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(description="课程相关接口")
 @RestController
 @RequestMapping("/course")
 public class CourseController {
@@ -20,13 +24,13 @@ public class CourseController {
 	private ICourseService courseService;
 
 	/**
-	 * @author 胡杰
+	 * 
 	 * 通过创建MsgResponse方法 ，若查询成功，则返回"查询成功！"，并将所查询的班级返回
 	 * 若查询不成功，则捕获抛出的新异常
 	 * 
 	 * */
 	
-	
+	    @ApiOperation(value="查找课程全部信息")
 		@GetMapping("findAll")
 		public MsgResponse findAll(){
 			try{
@@ -40,7 +44,7 @@ public class CourseController {
 			}
 		}
 		
-		
+	    @ApiOperation(value="通过课程ID查找全部课程信息")
 		@GetMapping("findById")
 		public MsgResponse findById(long id){
 			try {
@@ -52,7 +56,7 @@ public class CourseController {
 			}
 		}
 		
-
+	    @ApiOperation(value="插入课程信息")
 		@PostMapping("save")
 		public MsgResponse save(Course course){
 			try {
@@ -65,7 +69,7 @@ public class CourseController {
 			}
 		}
 		
-	
+	    @ApiOperation(value="更新课程信息")
 		@PostMapping("update")
 		public MsgResponse update(Course course){
 			try {
@@ -77,7 +81,7 @@ public class CourseController {
 			}
 		}
 		
-	
+	    @ApiOperation(value="通过课程ID删除课程信息")
 		@PostMapping("deleteById")
 		public MsgResponse deleteById(long id){
 			try {

@@ -8,6 +8,13 @@
 		select * from
 		poll_question
 	</select>
+    <!-- 通过ID查询所有班级信息 -->
+	<select id="findByIdQuestionVM" resultMap="QuestionVMResultMap">
+		select * from
+		poll_question 
+		where id=#{id}
+	</select>
+
 
 
 	<resultMap type="com.briup.app02.vm.QuestionVM" id="QuestionVMResultMap">
@@ -16,6 +23,8 @@
 		<result column="questiontype" property="questiontype" />
 		<collection column="id" property="options"
 			select="com.briup.app02.dao.OptionMapper.findByQuestionId"></collection>
+			<collection column="id" property="qqVM"
+			select="com.briup.app02.dao.extend.QqVMMapper.findAllQuestionnaire"></collection>
 	</resultMap>
 
 </mapper>

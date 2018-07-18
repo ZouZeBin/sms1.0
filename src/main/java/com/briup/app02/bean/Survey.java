@@ -4,7 +4,13 @@ public class Survey {
 	private Long id;
 	private String state;
 	private double average;
-	private String surveyDate;
+	private String surveydate;
+	public String getSurveydate() {
+		return surveydate;
+	}
+	public void setSurveydate(String surveydate) {
+		this.surveydate = surveydate;
+	}
 	private Long questionnaire_id;
 	private Long clazz_id;
 	private Long user_id;
@@ -27,12 +33,7 @@ public class Survey {
 	public void setAverage(double average) {
 		this.average = average;
 	}
-	public String getSurveyDate() {
-		return surveyDate;
-	}
-	public void setSurveyDate(String surveyDate) {
-		this.surveyDate = surveyDate;
-	}
+	
 	public Long getQuestionnaire_id() {
 		return questionnaire_id;
 	}

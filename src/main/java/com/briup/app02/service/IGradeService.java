@@ -14,7 +14,6 @@ public interface IGradeService {
 	
 	void update(Grade grade) throws Exception;
 	
-
 	void deleteById(long id) throws Exception;
 	
 }

@@ -12,6 +12,10 @@ import com.briup.app02.bean.School;
 import com.briup.app02.service.ISchoolService;
 import com.briup.app02.util.MsgResponse;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(description="学校相关接口")
 @RestController
 @RequestMapping("/school")
 public class SchoolController {
@@ -19,7 +23,7 @@ public class SchoolController {
 	@Autowired
 	private ISchoolService schoolService;
 
-	//查询所有的学校
+	@ApiOperation(value="查询全部学校信息")
 	@GetMapping("findAll")
 	public MsgResponse findAll(){
 		try{
@@ -33,7 +37,7 @@ public class SchoolController {
 		}
 	}
 	
-	//通过ID查询学校
+	@ApiOperation(value="通过ID查询学校信息")
 	@GetMapping("findById")
 	public MsgResponse findById(long id){
 		try {
@@ -45,7 +49,7 @@ public class SchoolController {
 		}
 	}
 	
-	//保存学校
+	@ApiOperation(value="插入学校信息")
 	@PostMapping("save")
 	public MsgResponse save(School school){
 		try {
@@ -58,7 +62,8 @@ public class SchoolController {
 		}
 	}
 	
-	//更新学校
+	
+	@ApiOperation(value="更新学校信息")
 	@PostMapping("update")
 	public MsgResponse update(School school){
 		try {
@@ -70,7 +75,7 @@ public class SchoolController {
 		}
 	}
 	
-	//删除学校
+	@ApiOperation(value="删除学校信息")
 	@PostMapping("deleteById")
 	public MsgResponse deleteById(long id){
 		try {

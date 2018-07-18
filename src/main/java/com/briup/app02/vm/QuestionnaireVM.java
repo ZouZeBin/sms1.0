@@ -1,9 +1,8 @@
 package com.briup.app02.vm;
 
-import com.briup.app02.bean.Grade;
-import com.briup.app02.bean.User;
+import com.briup.app02.bean.Survey;
 
-public class ClazzVM {
+public class QuestionnaireVM {
 	
 	private Long id;
 	
@@ -11,9 +10,11 @@ public class ClazzVM {
 	
 	private String description;
 	
-	private Grade grade;
+	private String createdate;
 	
-	private User user;
+	private QqVM qqVM;
+	
+	private Survey survey;
 
 	public Long getId() {
 		return id;
@@ -39,20 +40,28 @@ public class ClazzVM {
 		this.description = description;
 	}
 
-	public Grade getGrade() {
-		return grade;
+	public String getCreatedate() {
+		return createdate;
 	}
 
-	public void setGrade(Grade grade) {
-		this.grade = grade;
+	public void setCreatedate(String createdate) {
+		this.createdate = createdate;
 	}
 
-	public User getUser() {
-		return user;
+	public QqVM getQqVM() {
+		return qqVM;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setQqVM(QqVM qqVM) {
+		this.qqVM = qqVM;
+	}
+
+	public Survey getSurvey() {
+		return survey;
+	}
+
+	public void setSurvey(Survey survey) {
+		this.survey = survey;
 	}
 
 }

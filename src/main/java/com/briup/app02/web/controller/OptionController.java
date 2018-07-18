@@ -12,12 +12,17 @@ import com.briup.app02.bean.Option;
 import com.briup.app02.service.IOptionService;
 import com.briup.app02.util.MsgResponse;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(description="选项实体相关接口")
 @RestController
 @RequestMapping("/option")
 public class OptionController {
 	@Autowired
 	private IOptionService optionService;
-	
+
+    @ApiOperation(value="查询全部选项实体信息")
 	@GetMapping("findAll")
 	public MsgResponse findAll() throws Exception {
 		
@@ -32,6 +37,8 @@ public class OptionController {
 		}
 		
 	}
+    
+    @ApiOperation(value="插入选项实体信息")
 	@PostMapping("save")
 	public MsgResponse save(Option option){
 		try {
@@ -43,6 +50,8 @@ public class OptionController {
 			
 		}
 	}
+    
+    @ApiOperation(value="更新选项实体信息")
 	@PostMapping("update")
 	public MsgResponse update(Option option){
 		try {

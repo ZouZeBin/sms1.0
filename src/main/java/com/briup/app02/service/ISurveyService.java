@@ -5,7 +5,8 @@ import java.util.List;
 import com.briup.app02.bean.Survey;
 
 public interface ISurveyService {
-List<Survey> findAll() throws Exception;
+	
+    List<Survey> findAll() throws Exception;
 	
 	Survey findById(long id) throws Exception;
 	

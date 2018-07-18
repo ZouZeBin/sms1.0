@@ -15,22 +15,21 @@ import com.briup.app02.service.IAnswerService;
 public class AnswerService implements IAnswerService {
 	@Autowired
 	private AnswerMapper answerMapper;
+
 	@Override
 	public List<Answer> findAll() throws Exception {
-		List <Answer> answer = answerMapper.findAll();
-		if(answer != null){
+		List<Answer> answer = answerMapper.findAll();
+		if (answer != null) {
 			return answer;
-		}
-		else{
+		} else {
 			throw new Exception("不存在选项！");
 		}
 	}
 
 	@Override
 	public void save(Answer answer) throws Exception {
-		
-			answerMapper.save(answer);
-		
-	
-}
+
+		answerMapper.save(answer);
+
+	}
 }

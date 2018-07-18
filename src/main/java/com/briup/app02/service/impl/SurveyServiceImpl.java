@@ -22,7 +22,7 @@ public class SurveyServiceImpl implements ISurveyService{
 			return survey;
 		}
 		else{
-			throw new Exception("未添加任何用户！");
+			throw new Exception("查找失败");
 		}
 	}
 
@@ -33,7 +33,7 @@ public class SurveyServiceImpl implements ISurveyService{
 			return surveyMapper.findById(id);
 			
 		}else{
-			throw new Exception("对不起，您要查找的用户不存在！");
+			throw new Exception("查找失败");
 			
 		}
 	}
@@ -52,7 +52,7 @@ public class SurveyServiceImpl implements ISurveyService{
 		if(newSurvey != null){
 			surveyMapper.update(survey);
 		}else{
-			throw new Exception("更新失败，您要更新的用户不存在！");
+			throw new Exception("更新失败");
 			
 		}		
 	}

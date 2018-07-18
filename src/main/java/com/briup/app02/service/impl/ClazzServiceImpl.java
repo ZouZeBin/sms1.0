@@ -20,11 +20,9 @@ public class ClazzServiceImpl implements IClazzService {
 	private ClazzVMMapper clazzVMMapper;
 	
 	/**
-	 * @author 胡杰
-	 * @param clazz
-	 * 若查询失败  则抛出一个新异常让StudentControll捕获
+	 * 若查询失败  则抛出一个新异常
 	 * 
-	 * */
+	  */
 	
 	
 	@Override

@@ -8,10 +8,11 @@
 		select * from poll_clazz
 	</select>
 	<select id="findByIdClazzVM" resultMap="ClazzVMResultMap">
-		select * from poll_clazz where id=#{id}
+		select * from poll_clazz
+		where id=#{id}
 	</select>
-	
-	
+
+
 	<resultMap type="com.briup.app02.vm.ClazzVM" id="ClazzVMResultMap">
 		<id column="id" property="id" />
 		<result column="name" property="name" />

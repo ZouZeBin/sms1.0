@@ -3,21 +3,31 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.briup.app02.dao.SurveyMapper">
+    <!-- 查找全部课调卷信息 -->
 	<select id="findAll" resultType="com.briup.app02.bean.Survey">
 		select * from poll_survey
 	</select>
-
+	
+	<!-- 通过问卷ID查找课调信息 -->
+	<select id="findBySurveyId" parameterType="long"
+		resultType="com.briup.app02.bean.Survey">
+		select * from poll_survey where questionnaire_id = #{id}
+	</select>
+	
+	<!-- 通过ID查找课调信息-->
 	<select id="findById" parameterType="long"
-		resultType="com.briup.app02.bean.School">
+		resultType="com.briup.app02.bean.Survey">
 		select * from poll_survey where id = #{id}
 	</select>
 
+    <!-- 插入课调信息 -->
 	<insert id="save" parameterType="com.briup.app02.bean.Survey">
 		insert into poll_survey
 		values(null,#{state},#{average},#{surveyDate},#{questionnaire_id},
 		#{clazz_id},#{user_id},#{course_id})
 	</insert>
 
+    <!-- 更新课调信息 -->
 	<update id="update" parameterType="com.briup.app02.bean.Survey">
 		update poll_survey
 		set

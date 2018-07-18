@@ -6,13 +6,18 @@ import com.briup.app02.bean.Question;
 import com.briup.app02.vm.QuestionVM;
 
 public interface IQuestionService {
+	
 	List<Question> findAll() throws Exception;
 	
 	List<QuestionVM> findAllQuestionVM() throws Exception;
 	
 	Question findById(long id) throws Exception;
 	
+	QuestionVM findByIdQuestionVM(long id) throws Exception;
+	
 	void save(Question question) throws Exception;
+	
+//	void save(QuestionVM questionVM) throws Exception;	
 	
 	void update(Question question) throws Exception;
 	

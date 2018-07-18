@@ -21,7 +21,7 @@ public class CourseServiceImpl implements ICourseService {
 			return course;
 		}
 		else{
-			throw new Exception("未添加任何课程！");
+			throw new Exception();
 		}
 		
 	}

@@ -21,7 +21,7 @@ public class OptionServiceImpl implements IOptionService {
 			return option;
 		}
 		else{
-			throw new Exception("不存在选项！");
+			throw new Exception("查找失败！");
 		}
 	}
 
@@ -30,7 +30,7 @@ public class OptionServiceImpl implements IOptionService {
 		if(option.getLabel() != null){
 			optionMapper.save(option);
 		}else{
-			throw new Exception("保存失败！请联系管理员。");
+			throw new Exception("保存失败");
 		}
 	}
 

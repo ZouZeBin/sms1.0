@@ -12,6 +12,10 @@ import com.briup.app02.bean.User;
 import com.briup.app02.service.IUserService;
 import com.briup.app02.util.MsgResponse;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(description="教师相关接口")
 @RestController
 @RequestMapping("/User")
 public class UserController {
@@ -20,7 +24,7 @@ public class UserController {
 	private IUserService userService;
 	
 
-	//查询所有的用户
+	@ApiOperation(value="查询全部教师信息")
 	@GetMapping("findAll")
 	public MsgResponse findAll(){
 		try{
@@ -34,7 +38,7 @@ public class UserController {
 		}
 	}
 	
-	//通过ID查询用户
+	@ApiOperation(value="通过ID查询教师信息")
 	@GetMapping("findById")
 	public MsgResponse findById(long id){
 		try {
@@ -46,7 +50,7 @@ public class UserController {
 		}
 	}
 	
-	//保存用户
+	@ApiOperation(value="插入教师信息")
 	@PostMapping("save")
 	public MsgResponse save(User user){
 		try {
@@ -59,7 +63,7 @@ public class UserController {
 		}
 	}
 	
-	//更新用户
+	@ApiOperation(value="更新教师信息")
 	@PostMapping("update")
 	public MsgResponse update(User user){
 		try {
@@ -71,7 +75,7 @@ public class UserController {
 		}
 	}
 	
-	//删除用户
+	@ApiOperation(value="删除教师信息")
 	@PostMapping("deleteById")
 	public MsgResponse deleteById(long id){
 		try {

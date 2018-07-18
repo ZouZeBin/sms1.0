@@ -22,7 +22,7 @@ public class UserServiceImpl implements IUserService {
 			return user;
 		}
 		else{
-			throw new Exception("未添加任何用户！");
+			throw new Exception("查找失败");
 		}
 	}
 
@@ -33,7 +33,7 @@ public class UserServiceImpl implements IUserService {
 			return userMapper.findById(id);
 			
 		}else{
-			throw new Exception("对不起，您要查找的用户不存在！");
+			throw new Exception("查找失败");
 			
 		}
 	}
@@ -43,7 +43,7 @@ public class UserServiceImpl implements IUserService {
 		if(user.getName() != null){
 			userMapper.save(user);
 		}else{
-			throw new Exception("保存失败！请联系管理员。");
+			throw new Exception("保存失败");
 		}
 				
 	}
@@ -54,7 +54,7 @@ public class UserServiceImpl implements IUserService {
 		if(newSchool != null){
 			userMapper.update(user);
 		}else{
-			throw new Exception("更新失败，您要更新的用户不存在！");
+			throw new Exception("更新失败");
 			
 		}		
 	}
@@ -65,7 +65,7 @@ public class UserServiceImpl implements IUserService {
 		if(user != null){
 			userMapper.deleteById(id);
 		}else{
-			throw new Exception("删除失败，不存在该用户！");
+			throw new Exception("删除失败");
 		}		
 	}
 

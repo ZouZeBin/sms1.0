@@ -21,7 +21,7 @@ public class SchoolServiceImpl implements ISchoolService {
 			return school;
 		}
 		else{
-			throw new Exception("未添加任何学校！");
+			throw new Exception("查找失败，未添加学校信息");
 		}
 		
 	}
@@ -33,7 +33,7 @@ public class SchoolServiceImpl implements ISchoolService {
 			return schoolMapper.findById(id);
 			
 		}else{
-			throw new Exception("对不起，您要查找的学校不存在！");
+			throw new Exception("查找失败，未添加学校信息");
 			
 		}
 		
@@ -44,7 +44,7 @@ public class SchoolServiceImpl implements ISchoolService {
 		if(school.getName() != null){
 			schoolMapper.save(school);
 		}else{
-			throw new Exception("保存失败！请联系管理员。");
+			throw new Exception("保存失败");
 		}
 		
 	}
@@ -55,7 +55,7 @@ public class SchoolServiceImpl implements ISchoolService {
 		if(newSchool != null){
 			schoolMapper.update(school);
 		}else{
-			throw new Exception("更新失败，您要更新的学校不存在！");
+			throw new Exception("更新失败");
 			
 		}
 	}

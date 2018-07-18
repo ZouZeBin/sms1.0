@@ -17,6 +17,7 @@ public class QuestionServiceImpl implements IQuestionService{
 	private QuestionMapper questionMapper;
 	@Autowired
 	private QuestionVMMapper questionVMMapper;
+	@Autowired
 	
 	@Override
 	public List<Question> findAll() throws Exception {
@@ -25,7 +26,7 @@ public class QuestionServiceImpl implements IQuestionService{
 			return question;
 		}
 		else{
-			throw new Exception("不存在！");
+			throw new Exception("查找失败");
 		}
 	}
 	
@@ -36,7 +37,7 @@ public class QuestionServiceImpl implements IQuestionService{
 			return questionVM;
 		}
 		else{
-			throw new Exception("不存在！");
+			throw new Exception("查找失败");
 		}
 	}
 	
@@ -48,17 +49,29 @@ public class QuestionServiceImpl implements IQuestionService{
 			return questionMapper.findById(id);
 			
 		}else{
-			throw new Exception("对不起，您要查找的成绩不存在！");
+			throw new Exception("查找失败");
 			
 		}
 	}
+	
+	@Override
+	public QuestionVM findByIdQuestionVM(long id) throws Exception {
+		QuestionVM questionVM = questionVMMapper.findByIdQuestionVM(id);
+		if(questionVM != null){
+			return questionVMMapper.findByIdQuestionVM(id);
+		}else{
+			throw new Exception("查找失败");
+
+		}
+	}
+
 
 	@Override
 	public void save(Question question) throws Exception {
 		if(question.getName() != null){
 			questionMapper.save(question);
 		}else{
-			throw new Exception("保存失败！请联系管理员。");
+			throw new Exception("保存失败");
 		}
 				
 	}
@@ -69,7 +82,7 @@ public class QuestionServiceImpl implements IQuestionService{
 		if(newQuestion != null){
 			questionMapper.update(question);
 		}else{
-			throw new Exception("更新失败，您要更新的成绩不存在！");
+			throw new Exception("更新失败");
 			
 		}		
 	}
@@ -80,9 +93,23 @@ public class QuestionServiceImpl implements IQuestionService{
 		if(grade != null){
 			questionMapper.deleteById(id);
 		}else{
-			throw new Exception("删除失败，不存在该id！");
+			throw new Exception("删除失败");
 		}		
 	}
+
+	/*@Override
+	public void save(QuestionVM questionVM) throws Exception {
+		*//**一对多
+		 * 1.将question和option 从questionVM中剥离出来
+		 * 2.question 
+		 * 
+		 * *//*
+		Long questionId = questionVM.getId();
+		
+		
+		
+	}*/
+
 
 	
 	

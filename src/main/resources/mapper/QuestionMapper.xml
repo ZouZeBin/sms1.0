@@ -3,27 +3,32 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.briup.app02.dao.QuestionMapper">
-
+    <!-- 查找全部问题信息 -->
 	<select id="findAll" resultType="com.briup.app02.bean.Question">
 		select * from poll_question
 	</select>
-
+	
+    <!-- 通过ID查找问题信息 -->
 	<select id="findById" parameterType="long"
 		resultType="com.briup.app02.bean.Question">
 		select * from poll_question where id = #{id}
 	</select>
 
+    <!-- 插入问题信息信息 -->
 	<insert id="save" parameterType="com.briup.app02.bean.Question">
 		insert into poll_question
 		values(null,#{name},#{questionType})
 	</insert>
 
+    <!-- 查更新问题信息 -->
 	<update id="update" parameterType="com.briup.app02.bean.Question">
 		update poll_question
 		set
 		name=#{name},questionType=#{questionType}
 		where id=#{id}
 	</update>
+	
+	<!-- 删除问题信息 -->
 	<delete id="deleteById" parameterType="long">
 		delete from poll_question
 		where id=#{id}

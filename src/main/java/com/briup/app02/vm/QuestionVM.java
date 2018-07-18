@@ -5,33 +5,55 @@ import java.util.List;
 import com.briup.app02.bean.Option;
 
 public class QuestionVM {
+	
 	private Long id;
+	
 	private String name;
+	
 	private String questiontype;
+	
 	private List<Option> options;
+	
+	private List<QqVM> qqVM;
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getQuestiontype() {
 		return questiontype;
 	}
+
 	public void setQuestiontype(String questiontype) {
 		this.questiontype = questiontype;
 	}
+
 	public List<Option> getOption() {
 		return options;
 	}
+
 	public void setOption(List<Option> options) {
-		this.options= options;
+		this.options = options;
 	}
-	
+
+	public List<QqVM> getQqVM() {
+		return qqVM;
+	}
+
+	public void setQqVM(List<QqVM> qqVM) {
+		this.qqVM = qqVM;
+	}
+
 }
