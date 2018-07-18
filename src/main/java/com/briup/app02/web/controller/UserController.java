@@ -54,7 +54,7 @@ public class UserController {
 	@PostMapping("save")
 	public MsgResponse save(User user){
 		try {
-			userService.save(user);
+			userService.save(user); 
 			return MsgResponse.success("保存成功！", null);
 		} catch (Exception e) {
 			e.printStackTrace();
