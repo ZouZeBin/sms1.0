@@ -25,7 +25,7 @@ public class UserController {
 	
 
 	@ApiOperation(value="查询全部教师信息")
-	@GetMapping("findAll") 
+	@GetMapping("findAll")  
 	public MsgResponse findAll(){
 		try{
 			List<User> list = userService.findAll();
