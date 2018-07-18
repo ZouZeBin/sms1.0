@@ -5,16 +5,17 @@ public class Survey {
 	private String state;
 	private double average;
 	private String surveydate;
+	private Long questionnaire_id;
+	private Long clazz_id;
+	private Long user_id;
+	private Long course_id;
+	
 	public String getSurveydate() {
 		return surveydate;
 	}
 	public void setSurveydate(String surveydate) {
 		this.surveydate = surveydate;
 	}
-	private Long questionnaire_id;
-	private Long clazz_id;
-	private Long user_id;
-	private Long course_id;
 	public Long getId() {
 		return id;
 	}

@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.briup.app02.bean.Survey;
 
+import com.briup.app02.vm.SurveyVM;
+
 public interface ISurveyService {
 	
     List<Survey> findAll() throws Exception;
@@ -13,4 +15,8 @@ public interface ISurveyService {
 	void save(Survey survey) throws Exception;
 	
 	void update(Survey survey) throws Exception;
+	
+	List<SurveyVM> findAllSurveyVM() throws Exception;
+	
+	SurveyVM findByIdSurveyVM(long id) throws Exception;
 }

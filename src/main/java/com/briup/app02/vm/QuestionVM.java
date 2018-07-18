@@ -40,11 +40,11 @@ public class QuestionVM {
 		this.questiontype = questiontype;
 	}
 
-	public List<Option> getOption() {
+	public List<Option> getOptions() {
 		return options;
 	}
 
-	public void setOption(List<Option> options) {
+	public void setOptions(List<Option> options) {
 		this.options = options;
 	}
 
@@ -55,5 +55,7 @@ public class QuestionVM {
 	public void setQqVM(List<QqVM> qqVM) {
 		this.qqVM = qqVM;
 	}
+
+	
 
 }

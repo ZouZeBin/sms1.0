@@ -27,7 +27,7 @@ public class QuestionController {
 	@PostMapping("saveQuestion")
 	public MsgResponse save(QuestionVM questionVM){
 		try {
-				
+			 questionService.saveQuestion(questionVM);
 			return MsgResponse.success("保存成功！", null);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -17,9 +17,11 @@ public interface IQuestionService {
 	
 	void save(Question question) throws Exception;
 	
-//	void save(QuestionVM questionVM) throws Exception;	
+	void save(QuestionVM questionVM) throws Exception;	
 	
 	void update(Question question) throws Exception;
 	
 	void deleteById(long id) throws Exception;
+	
+	void saveQuestion(QuestionVM questionVM) throws Exception;
 }

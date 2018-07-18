@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.briup.app02.bean.Survey;
 import com.briup.app02.service.ISurveyService;
 import com.briup.app02.util.MsgResponse;
+import com.briup.app02.vm.SurveyVM;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -36,8 +37,22 @@ public class SurveyController {
 
 			}
 		}
+	    
+	    @ApiOperation(value="查询全部课调实体信息(级联)",notes="即能查询课调的基本信息，也能其内部信息")
+		@GetMapping("findAllSurveyVM")
+		public MsgResponse ffindAllSurveyVM(){
+			try{
+				List<SurveyVM> list = surveyService.findAllSurveyVM();
+				return MsgResponse.success("查询成功！", list);
+
+			}catch (Exception e) {
+				e.printStackTrace();
+				return MsgResponse.error(e.getMessage());
+
+			}
+		}
 		
-	    @ApiOperation(value="通过ID查询全部课调实体信息")
+	    @ApiOperation(value="通过ID查询课调实体信息")
 		@GetMapping("findById")
 		public MsgResponse findById(long id){
 			try {
@@ -49,6 +64,19 @@ public class SurveyController {
 			}
 		}
 		
+	    
+	  
+	  		@ApiOperation(value="根据课调的ID查看课调实体信息(级联)")
+	  		@GetMapping("findByIdSurveyVM")
+	  		public MsgResponse findByIdSurveyVM(long id){
+	  			try {
+	  				SurveyVM c = surveyService.findByIdSurveyVM(id);
+	  				return MsgResponse.success("查询成功！", c);
+	  			} catch (Exception e) {
+	  				e.printStackTrace();
+	  				return MsgResponse.error(e.getMessage());
+	  			}
+	  		}
 	    @ApiOperation(value="插入课调实体信息")
 		@PostMapping("save")
 		public MsgResponse save(Survey survey){

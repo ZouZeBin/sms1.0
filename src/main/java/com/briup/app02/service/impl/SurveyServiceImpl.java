@@ -7,13 +7,16 @@ import org.springframework.stereotype.Service;
 
 import com.briup.app02.bean.Survey;
 import com.briup.app02.dao.SurveyMapper;
+import com.briup.app02.dao.extend.SurveyVMMapper;
 import com.briup.app02.service.ISurveyService;
+import com.briup.app02.vm.SurveyVM;
 
 @Service
 public class SurveyServiceImpl implements ISurveyService{
 	@Autowired
 	private SurveyMapper surveyMapper;
-	
+	@Autowired
+	private SurveyVMMapper surveyVMMapper;
 	
 	@Override
 	public List<Survey> findAll() throws Exception {
@@ -55,6 +58,24 @@ public class SurveyServiceImpl implements ISurveyService{
 			throw new Exception("更新失败");
 			
 		}		
+	}
+
+	@Override
+	public List<SurveyVM> findAllSurveyVM() throws Exception {
+		// TODO Auto-generated method stub
+		return surveyVMMapper.findAllSurveyVM();
+	}
+
+	@Override
+	public SurveyVM findByIdSurveyVM(long id) throws Exception {
+		// TODO Auto-generated method stub
+		SurveyVM s=surveyVMMapper.findByIdSurveyVM(id);
+		if(s!=null){
+			return s;
+		}
+		else{
+			throw new Exception("您要查找的课调不存在！");
+		}
 	}
 
 

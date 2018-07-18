@@ -4,6 +4,15 @@ public class Question {
 	private Long id;
 	private String name;
 	private String questionType;
+	public Question() {
+		super();
+	}
+	public Question(Long id, String name, String questionType) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.questionType = questionType;
+	}
 	public Long getId() {
 		return id;
 	}
