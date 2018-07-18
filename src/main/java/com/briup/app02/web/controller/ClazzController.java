@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.briup.app02.bean.Clazz;
 import com.briup.app02.service.IClazzService;
 import com.briup.app02.util.MsgResponse;
+import com.briup.app02.vm.ClazzVM;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+@Api(description="班级相关接口")
 @RestController
 @RequestMapping("/clazz")
 public class ClazzController {
@@ -26,7 +30,7 @@ public class ClazzController {
 	 * 
 	 * */
 	
-	
+		@ApiOperation(value="查询所有班级",notes="只能查询班级的基本信息，不能查看年级和班主任")
 		@GetMapping("findAll")
 		public MsgResponse findAll(){
 			try{
@@ -40,7 +44,34 @@ public class ClazzController {
 			}
 		}
 		
+		@ApiOperation(value="查询所有班级",notes="即查询班级的基本信息，也能查看年级和班主任")
+		@GetMapping("findAllClazzVM")
+		public MsgResponse findAllClazzVM(){
+			try{
+				List<ClazzVM> list = clazzService.findAllClazzVM();
+				return MsgResponse.success("查询成功！", list);
+
+			}catch (Exception e) {
+				e.printStackTrace();
+				return MsgResponse.error(e.getMessage());
+
+			}
+		}
+		
 		//通过ID查询班级
+		@ApiOperation(value="根据ID查看班级",notes="即查询班级的基本信息，也能查看年级和班主任")
+		@GetMapping("findByIdClazzVM")
+		public MsgResponse findByIdClazzVM(long id){
+			try {
+				ClazzVM clazzVM = clazzService.findByIdClazzVM(id);
+				return MsgResponse.success("查询成功！", clazzVM);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return MsgResponse.error(e.getMessage());
+			}
+		}
+		
+		@ApiOperation(value="根据ID查看班级",notes="只能查询班级的基本信息")
 		@GetMapping("findById")
 		public MsgResponse findById(long id){
 			try {
@@ -82,7 +113,7 @@ public class ClazzController {
 		public MsgResponse deleteById(long id){
 			try {
 				clazzService.deleteById(id);
-				return MsgResponse.success("删除成功", null);
+				return MsgResponse.success("删除成功！", null);
 			} catch (Exception e) {
 				e.printStackTrace();
 				return MsgResponse.error(e.getMessage());

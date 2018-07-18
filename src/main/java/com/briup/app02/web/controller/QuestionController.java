@@ -11,16 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.briup.app02.bean.Question;
 import com.briup.app02.service.IQuestionService;
 import com.briup.app02.util.MsgResponse;
+import com.briup.app02.vm.QuestionVM;
 
+import io.swagger.annotations.Api;
+@Api(description="问题相关接口")
 @RestController
 @RequestMapping("/question")
 public class QuestionController {
 	@Autowired
 	private IQuestionService questionService;
-	
+
 	@GetMapping("findAll")
 	public MsgResponse findAll() throws Exception {
-		
+
 		try{
 			List<Question> list = questionService.findAll();
 			return MsgResponse.success("查询成功！", list);
@@ -30,56 +33,71 @@ public class QuestionController {
 			return MsgResponse.error(e.getMessage());
 
 		}
-		
+
 	}
-	
+
+	@GetMapping("findAllQuestionVM")
+	public MsgResponse findAllQuestionVM() throws Exception {
+
+		try{
+			List<QuestionVM> list = questionService.findAllQuestionVM();
+			return MsgResponse.success("查询成功！", list);
+
+		}catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+
+		}
+
+	}
+
 	//通过ID查询
-		@GetMapping("findById")
-		public MsgResponse findById(long id){
-			try {
-				Question question = questionService.findById(id);
-				return MsgResponse.success("查询成功！", question);
-			} catch (Exception e) {
-				e.printStackTrace();
-				return MsgResponse.error(e.getMessage());
-			}
+	@GetMapping("findById")
+	public MsgResponse findById(long id){
+		try {
+			Question question = questionService.findById(id);
+			return MsgResponse.success("查询成功！", question);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
 		}
-		
-		//保存
-		@PostMapping("save")
-		public MsgResponse save(Question question){
-			try {
-				questionService.save(question);
-				return MsgResponse.success("保存成功！", null);
-			} catch (Exception e) {
-				e.printStackTrace();
-				return MsgResponse.error(e.getMessage());
-				
-			}
+	}
+
+	//保存
+	@PostMapping("save")
+	public MsgResponse save(Question question){
+		try {
+			questionService.save(question);
+			return MsgResponse.success("保存成功！", null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
+
 		}
-		
-		//更新
-		@PostMapping("update")
-		public MsgResponse update(Question question){
-			try {
-				questionService.update(question);
-				return MsgResponse.success("更新成功！", null);
-			} catch (Exception e) {
-				e.printStackTrace();
-				return MsgResponse.error(e.getMessage());
-			}
+	}
+
+	//更新
+	@PostMapping("update")
+	public MsgResponse update(Question question){
+		try {
+			questionService.update(question);
+			return MsgResponse.success("更新成功！", null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
 		}
-		
-		//删除
-		@PostMapping("deleteById")
-		public MsgResponse deleteById(long id){
-			try {
-				questionService.deleteById(id);
-				return MsgResponse.success("删除成功", null);
-			} catch (Exception e) {
-				e.printStackTrace();
-				return MsgResponse.error(e.getMessage());
-			}
+	}
+
+	//删除
+	@PostMapping("deleteById")
+	public MsgResponse deleteById(long id){
+		try {
+			questionService.deleteById(id);
+			return MsgResponse.success("删除成功", null);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return MsgResponse.error(e.getMessage());
 		}
+	}
 
 }

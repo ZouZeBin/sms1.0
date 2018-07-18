@@ -7,12 +7,16 @@ import org.springframework.stereotype.Service;
 
 import com.briup.app02.bean.Question;
 import com.briup.app02.dao.QuestionMapper;
+import com.briup.app02.dao.extend.QuestionVMMapper;
 import com.briup.app02.service.IQuestionService;
+import com.briup.app02.vm.QuestionVM;
 
 @Service
 public class QuestionServiceImpl implements IQuestionService{
 	@Autowired
 	private QuestionMapper questionMapper;
+	@Autowired
+	private QuestionVMMapper questionVMMapper;
 	
 	@Override
 	public List<Question> findAll() throws Exception {
@@ -24,6 +28,18 @@ public class QuestionServiceImpl implements IQuestionService{
 			throw new Exception("不存在！");
 		}
 	}
+	
+	@Override
+	public List<QuestionVM> findAllQuestionVM() throws Exception {
+		List <QuestionVM> questionVM = questionVMMapper.findAllQuestionVM();
+		if(questionVM != null){
+			return questionVM;
+		}
+		else{
+			throw new Exception("不存在！");
+		}
+	}
+	
 
 	@Override
 	public Question findById(long id) throws Exception {
@@ -67,6 +83,8 @@ public class QuestionServiceImpl implements IQuestionService{
 			throw new Exception("删除失败，不存在该id！");
 		}		
 	}
+
+	
 	
 	
 	

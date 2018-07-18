@@ -11,6 +11,8 @@ public interface OptionMapper {
 	 * */
 	List<Option> findAll();
 	
+	List<Option> findByQuestionId(long id);
+	
 	void save(Option option);
 	
 	 void update (Option option);
