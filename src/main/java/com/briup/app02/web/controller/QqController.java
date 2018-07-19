@@ -17,7 +17,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import springfox.documentation.annotations.ApiIgnore;
 @Api(description="问题和调查问卷桥表")
-@ApiIgnore
+
 @RestController
 @RequestMapping("/qq")
 public class QqController {

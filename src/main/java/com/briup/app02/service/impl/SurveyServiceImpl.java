@@ -63,7 +63,8 @@ public class SurveyServiceImpl implements ISurveyService{
 	@Override
 	public List<SurveyVM> findAllSurveyVM() throws Exception {
 		// TODO Auto-generated method stub
-		return surveyVMMapper.findAllSurveyVM();
+		List<SurveyVM> s=surveyVMMapper.findAllSurveyVM();
+		return s;
 	}
 
 	@Override

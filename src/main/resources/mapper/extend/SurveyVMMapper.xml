@@ -17,9 +17,9 @@
 		<id column="id" property="id" />
 		<result column="state" property="state" />
 		<result column="average" property="average" />
-		
 		<result column="surveydate" property="surveydate" />
-		<association column="questonnaire_id" property="questonnaire"
+		
+		<association column="questionnaire_id" property="questionnaire"
 			select="com.briup.app02.dao.QuestionnaireMapper.findById"></association>
 		<association column="user_id" property="user"
 			select="com.briup.app02.dao.UserMapper.findById"></association>	
